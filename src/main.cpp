@@ -40,6 +40,24 @@ class RightAngleTriangle
             std::cout << "Triangle (" << c1 << "," << c2 << "," << hypotenuza << ") is " << color << ".\n";
         }
 
+        int perimeter() 
+        {
+            int sum = 0;
+            sum = c1 + c2 + hypotenuza;
+            return sum;
+        }
+
+        double aria()
+        {
+            return (double)c1*c2/2;
+        }
+
+        void write()
+        {
+            std::cout << "Perimeter: " << perimeter() << '\n';
+            std::cout << "Aria: " << aria() << '\n';
+        }
+
 };
 
 int main()
@@ -60,6 +78,7 @@ int main()
     RightAngleTriangle triangle(c1, c2, hypotenuza, color);
 
     triangle.displayTriangle();
+    triangle.write();
 
     return 0;
 }
