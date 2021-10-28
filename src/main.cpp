@@ -30,6 +30,12 @@ class RightAngleTriangle
             strcpy(color, t.color);
         }
 
+        //Deconstructor
+        ~RightAngleTriangle() 
+        {
+            delete color;
+        }
+
         void displayTriangle() {
             std::cout << "Triangle (" << c1 << "," << c2 << "," << hypotenuza << ") is " << color << ".\n";
         }
