@@ -10,9 +10,15 @@ class RightAngleTriangle
         int hypotenuza;
         char *color;
         int triangleNumber;
+        static int nr;
         
     public:
-        RightAngleTriangle() : c1(0), c2(0), hypotenuza(0), color() {}
+        RightAngleTriangle() : c1(0), c2(0), hypotenuza(0) 
+        { 
+            this -> color = new char[strlen("none") + 1];
+            strcpy(this -> color, "none"); 
+            triangleNumber = ++nr;
+        }
 
         RightAngleTriangle(int c1, int c2, int hypotenuza, char *color)
         {
@@ -21,16 +27,18 @@ class RightAngleTriangle
             this -> hypotenuza = hypotenuza;
             this -> color = new char[strlen(color) + 1];
             strcpy(this -> color, color);
+            triangleNumber = ++nr;
         }
 
         //CopyConstructor
-        RightAngleTriangle(const RightAngleTriangle &t)
+        RightAngleTriangle(const RightAngleTriangle &obj)
         {
-            c1 = t.c1;
-            c2 = t.c2;
-            hypotenuza = t.hypotenuza;
-            color = new char[strlen(t.color) + 1];
-            strcpy(color, t.color);
+            c1 = obj.c1;
+            c2 = obj.c2;
+            hypotenuza = obj.hypotenuza;
+            color = new char[strlen(obj.color) + 1];
+            strcpy(color, obj.color);
+            triangleNumber = ++nr;
         }
 
         //Deconstructor
@@ -40,7 +48,7 @@ class RightAngleTriangle
         }
 
         void displayTriangle() {
-            std::cout << "Triangle (" << c1 << "," << c2 << "," << hypotenuza << ") is " << color << ".\n";
+            std::cout << "Triangle " << triangleNumber << " (" << c1 << "," << c2 << "," << hypotenuza << ") is " << color << ".\n";
         }
 
         int perimeter() 
@@ -61,6 +69,8 @@ class RightAngleTriangle
             std::cout << "Aria: " << aria() << '\n';
         }
 };
+
+int RightAngleTriangle::nr;
 
 int main()
 {
