@@ -3,14 +3,17 @@
 #include <string.h>
 
 class RightAngleTriangle 
-{
+{   
     private:
         int c1;
         int c2;
         int hypotenuza;
         char *color;
-
+        int triangleNumber;
+        
     public:
+        RightAngleTriangle() : c1(0), c2(0), hypotenuza(0), color() {}
+
         RightAngleTriangle(int c1, int c2, int hypotenuza, char *color)
         {
             this -> c1 = c1;
@@ -21,7 +24,7 @@ class RightAngleTriangle
         }
 
         //CopyConstructor
-        RightAngleTriangle(const RightAngleTriangle& t)
+        RightAngleTriangle(const RightAngleTriangle &t)
         {
             c1 = t.c1;
             c2 = t.c2;
@@ -57,7 +60,6 @@ class RightAngleTriangle
             std::cout << "Perimeter: " << perimeter() << '\n';
             std::cout << "Aria: " << aria() << '\n';
         }
-
 };
 
 int main()
@@ -79,6 +81,14 @@ int main()
 
     triangle.displayTriangle();
     triangle.write();
+
+    RightAngleTriangle triangle1(triangle);
+
+    triangle1.displayTriangle();
+
+    RightAngleTriangle triangle2;
+
+    triangle2.displayTriangle();
 
     return 0;
 }
