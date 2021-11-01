@@ -47,6 +47,8 @@ class RightAngleTriangle
             delete color;
         }
 
+        RightAngleTriangle& operator=(const RightAngleTriangle&) = delete; //disable copy assignment operator
+
         void displayTriangle() {
             std::cout << "Triangle " << triangleNumber << " (" << c1 << "," << c2 << "," << hypotenuza << ") is " << color << ".\n";
         }
