@@ -44,7 +44,8 @@ class RightAngleTriangle
         //Deconstructor
         ~RightAngleTriangle() 
         {
-            delete color;
+            if(color)
+                delete color;
         }
 
         RightAngleTriangle& operator=(const RightAngleTriangle&) = delete; //disable copy assignment operator
@@ -79,6 +80,7 @@ int main()
     int c1, c2, hypotenuza;
     char color[20];
 
+    //dynamic initialization
     std::cout << "Give the length of the sides: " << '\n';
     std::cout << "c1 = ";
     std::cin >> c1;
@@ -98,7 +100,12 @@ int main()
 
     triangle1.displayTriangle();
 
-    RightAngleTriangle triangle2;
+    //static initialization
+    c1 = 7;
+    c2 = 9;
+    hypotenuza = 15;
+    strcpy(color, "blue");
+    RightAngleTriangle triangle2(c1, c2, hypotenuza, color);
 
     triangle2.displayTriangle();
 
